@@ -1,0 +1,169 @@
+{
+    "description": "Schedules for occupancy, lighting, equipment, and HVAC operation",
+    "schedule_type_limits": {
+        "Fraction": {
+            "lower_limit": 0.0,
+            "upper_limit": 1.0,
+            "numeric_type": "Continuous"
+        },
+        "OnOff": {
+            "lower_limit": 0,
+            "upper_limit": 1,
+            "numeric_type": "Discrete"
+        },
+        "Temperature": {
+            "lower_limit": -60,
+            "upper_limit": 200,
+            "numeric_type": "Continuous"
+        }
+    },
+    "occupancy_schedule": {
+        "name": "Occupancy_Schedule",
+        "type": "Fraction",
+        "description": "IT office occupancy pattern - Mon-Sat 8:00-17:30",
+        "weekday": {
+            "0-7": 0.0,
+            "8": 0.3,
+            "9-12": 1.0,
+            "13": 0.6,
+            "14-17": 1.0,
+            "18": 0.2,
+            "19-23": 0.0
+        },
+        "saturday": {
+            "0-7": 0.0,
+            "8-17": 0.8,
+            "18-23": 0.0
+        },
+        "sunday": {
+            "0-23": 0.0
+        },
+        "holiday": {
+            "0-23": 0.0
+        }
+    },
+    "lighting_schedule": {
+        "name": "Lighting_Schedule",
+        "type": "Fraction",
+        "description": "Lighting usage pattern for IT office with 18 ceiling lights",
+        "weekday": {
+            "0-7": 0.0,
+            "8-12": 1.0,
+            "13": 0.6,
+            "14-17": 1.0,
+            "18": 0.3,
+            "19-23": 0.0
+        },
+        "saturday": {
+            "0-7": 0.0,
+            "8-17": 0.9,
+            "18-23": 0.0
+        },
+        "sunday": {
+            "0-23": 0.0
+        }
+    },
+    "equipment_schedule": {
+        "name": "Equipment_Schedule",
+        "type": "Fraction",
+        "description": "IT equipment (approximately 40 computers and monitors)",
+        "weekday": {
+            "0-7": 0.2,
+            "8": 0.5,
+            "9-12": 1.0,
+            "13": 0.6,
+            "14-17": 1.0,
+            "18": 0.3,
+            "19-23": 0.2
+        },
+        "saturday": {
+            "0-7": 0.1,
+            "8-17": 0.8,
+            "18-23": 0.1
+        },
+        "sunday": {
+            "0-23": 0.1
+        }
+    },
+    "hvac_schedule": {
+        "name": "HVAC_Schedule",
+        "type": "OnOff",
+        "description": "HVAC operation schedule Mon-Sat 7:00-18:30",
+        "weekday": {
+            "0-6": 0,
+            "7-18": 1,
+            "19-23": 0
+        },
+        "saturday": {
+            "0-6": 0,
+            "7-18": 1,
+            "19-23": 0
+        },
+        "sunday": {
+            "0-23": 0
+        }
+    },
+    "heating_setpoint_schedule": {
+        "name": "Heating_Setpoint",
+        "type": "Temperature",
+        "description": "Heating setpoint temperature (Celsius) - Hanoi winter",
+        "weekday": {
+            "0-7": 18.0,
+            "8-17": 20.0,
+            "18-23": 18.0
+        },
+        "saturday": {
+            "0-7": 18.0,
+            "8-17": 20.0,
+            "18-23": 18.0
+        },
+        "sunday": {
+            "0-23": 18.0
+        }
+    },
+    "cooling_setpoint_schedule": {
+        "name": "Cooling_Setpoint",
+        "type": "Temperature",
+        "description": "Cooling setpoint temperature (Celsius) - Range 22-25°C",
+        "weekday": {
+            "0-7": 28.0,
+            "8-17": 22.0,
+            "18-23": 28.0
+        },
+        "saturday": {
+            "0-7": 28.0,
+            "8-17": 22.0,
+            "18-23": 28.0
+        },
+        "sunday": {
+            "0-23": 28.0
+        }
+    },
+    "occupancy_data": {
+        "max_occupants": 15,
+        "min_occupants": 5,
+        "activity_level": 130,
+        "activity_level_units": "W/person",
+        "clothing_insulation_summer": 0.5,
+        "clothing_insulation_winter": 1.0,
+        "notes": "IT office with fluctuating occupancy 5-15 people"
+    },
+    "lighting_data": {
+        "power_density": 12.0,
+        "power_density_units": "W/m2",
+        "return_air_fraction": 0.0,
+        "radiant_fraction": 0.42,
+        "visible_fraction": 0.18,
+        "total_lights": 18,
+        "notes": "18 square ceiling LED panels"
+    },
+    "equipment_data": {
+        "power_density": 35.0,
+        "power_density_units": "W/m2",
+        "radiant_fraction": 0.3,
+        "latent_fraction": 0.0,
+        "lost_fraction": 0.0,
+        "total_computers": 40,
+        "notes": "Approximately 40 computers/workstations - high IT equipment load"
+    }
+}

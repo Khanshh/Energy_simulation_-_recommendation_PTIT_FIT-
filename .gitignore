@@ -1,0 +1,38 @@
+# Environments
+venv/
+.venv/
+env/
+.env
+
+# Compiled Python modules
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# IDEs & OS Files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node / JS Packages
+node_modules/
+
+# EnergyPlus Outputs
+expandedidf.err
+outputs/results/**/*.err
+outputs/results/**/*.eso
+outputs/results/**/*.idf
+outputs/results/**/*.bnd
+outputs/results/**/*.eio
+outputs/results/**/*.end
+outputs/results/**/*.mdd
+outputs/results/**/*.mtd
+outputs/results/**/*.shd
+outputs/results/**/*.rdd
+outputs/results/**/*.csv

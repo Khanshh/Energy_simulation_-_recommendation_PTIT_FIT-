@@ -1,0 +1,76 @@
+{
+    "scenario_name": "Generic_Scenario",
+    "description": "Generic scenario with random occupancy pattern - 60% chance of 6 people, 40% random between 4-8 people",
+    "simulation_period": {
+        "start_month": 1,
+        "start_day": 1,
+        "end_month": 12,
+        "end_day": 31,
+        "year": 2024
+    },
+    "config_files": {
+        "geometry": "config/building/geometry.json",
+        "materials": "config/building/materials.json",
+        "hvac": "config/hvac/hvac_config.json",
+        "schedules": "config/schedules/schedules.json"
+    },
+    "overrides": {
+        "description": "Random occupancy pattern with weighted distribution",
+        "schedules": {
+            "occupancy_data": {
+                "max_occupants": 8,
+                "notes": "Maximum capacity is 8 people"
+            },
+            "occupancy_schedule": {
+                "pattern_type": "random_weighted",
+                "working_hours": "8-17",
+                "working_days": "Monday-Friday",
+                "distribution": {
+                    "type": "weighted_random",
+                    "base_occupancy": 6,
+                    "base_probability": 0.6,
+                    "random_range": [
+                        4,
+                        8
+                    ],
+                    "random_probability": 0.4,
+                    "notes": "60% of the time: 6 people, 40% of the time: random 4-8 people"
+                },
+                "weekday": {
+                    "0-7": 0.0,
+                    "8": "random_weighted",
+                    "9": "random_weighted",
+                    "10": "random_weighted",
+                    "11": "random_weighted",
+                    "12": "random_weighted",
+                    "13": "random_weighted",
+                    "14": "random_weighted",
+                    "15": "random_weighted",
+                    "16": "random_weighted",
+                    "17": "random_weighted",
+                    "18-23": 0.0
+                },
+                "saturday": {
+                    "0-23": 0.0
+                },
+                "sunday": {
+                    "0-23": 0.0
+                }
+            }
+        }
+    },
+    "output_variables": [
+        "Zone Mean Air Temperature",
+        "Zone Air Relative Humidity",
+        "Zone Lights Electric Power",
+        "Zone Air CO2 Concentration",
+        "Zone Ideal Loads Supply Air Total Cooling Energy",
+        "Zone Ideal Loads Supply Air Total Heating Energy",
+        "Zone Lights Electricity Energy",
+        "Zone Electric Equipment Electricity Energy",
+        "Zone People Occupant Count"
+    ],
+    "output_frequency": "Hourly",
+    "weather_file": "hanoi.epw",
+    "notes": "This scenario uses random weighted occupancy where each hour from 8-17h has a 60% chance of having 6 people and 40% chance of having a random number between 4-8 people"
+}

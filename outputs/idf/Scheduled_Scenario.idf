@@ -1,0 +1,699 @@
+!-Generator IDFGenerator
+!-Option OriginalOrderTop
+
+!-NOTE: All comments with '!-' are ignored by the IDFEditor and are generated automatically.
+!-      Use '!' comments if they need to be retained when using the IDFEditor.
+
+!- Scenario: Scheduled_Scenario
+!- Description: Scheduled scenario with fixed occupancy pattern based on typical office schedule
+
+Version,
+  9.6;  !- Version Identifier
+
+SimulationControl,
+  No,                      !- Do Zone Sizing Calculation
+  No,                      !- Do System Sizing Calculation
+  No,                      !- Do Plant Sizing Calculation
+  Yes,                     !- Run Simulation for Sizing Periods
+  Yes;                     !- Run Simulation for Weather File Run Periods
+
+RunPeriod,
+  Annual,                  !- Name
+  1, !- Begin Month
+  1,   !- Begin Day of Month
+  2024, !- Begin Year
+  12,   !- End Month
+  31,     !- End Day of Month
+  2024, !- End Year
+  Sunday,                  !- Day of Week for Start Day
+  Yes,                     !- Use Weather File Holidays and Special Days
+  Yes,                     !- Use Weather File Daylight Saving Period
+  No,                      !- Apply Weekend Holiday Rule
+  Yes,                     !- Use Weather File Rain Indicators
+  Yes;                     !- Use Weather File Snow Indicators
+
+Timestep,
+  4;                       !- Number of Timesteps per Hour
+
+Building,
+  IT Office Room - Hanoi,  !- Name
+  180,  !- North Axis
+  Suburbs,                 !- Terrain
+  0.04,                    !- Loads Convergence Tolerance Value
+  0.40,                    !- Temperature Convergence Tolerance Value
+  FullInteriorAndExterior, !- Solar Distribution
+  25,                      !- Maximum Number of Warmup Days
+  6;                       !- Minimum Number of Warmup Days
+
+GlobalGeometryRules,
+  UpperLeftCorner,         !- Starting Vertex Position
+  Counterclockwise,        !- Vertex Entry Direction
+  Relative;                !- Coordinate System
+
+Site:Location,
+  Hanoi,           !- Name
+  21.0285,       !- Latitude
+  105.8542,      !- Longitude
+  7,       !- Time Zone
+  16;      !- Elevation
+
+Material,
+  Concrete_200mm,              !- Name
+  MediumRough, !- Roughness
+  0.2, !- Thickness
+  1.95,  !- Conductivity
+  2400,   !- Density
+  900,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.7,    !- Solar Absorptance
+  0.7;  !- Visible Absorptance
+
+Material,
+  Brick_100mm,              !- Name
+  MediumRough, !- Roughness
+  0.1, !- Thickness
+  0.89,  !- Conductivity
+  1920,   !- Density
+  790,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.7,    !- Solar Absorptance
+  0.7;  !- Visible Absorptance
+
+Material,
+  Insulation_50mm,              !- Name
+  MediumRough, !- Roughness
+  0.05, !- Thickness
+  0.04,  !- Conductivity
+  32,   !- Density
+  1210,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.6,    !- Solar Absorptance
+  0.6;  !- Visible Absorptance
+
+Material,
+  Plaster_20mm,              !- Name
+  Smooth, !- Roughness
+  0.02, !- Thickness
+  0.72,  !- Conductivity
+  1860,   !- Density
+  840,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.6,    !- Solar Absorptance
+  0.6;  !- Visible Absorptance
+
+Material,
+  Ceramic_Tile_10mm,              !- Name
+  Smooth, !- Roughness
+  0.01, !- Thickness
+  1.3,  !- Conductivity
+  2300,   !- Density
+  840,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.6,    !- Solar Absorptance
+  0.6;  !- Visible Absorptance
+
+Material,
+  Gypsum_Board_13mm,              !- Name
+  Smooth, !- Roughness
+  0.013, !- Thickness
+  0.16,  !- Conductivity
+  800,   !- Density
+  1090,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.5,    !- Solar Absorptance
+  0.5;  !- Visible Absorptance
+
+Material,
+  Wood_Flooring_10mm,              !- Name
+  MediumSmooth, !- Roughness
+  0.01, !- Thickness
+  0.15,  !- Conductivity
+  700,   !- Density
+  1630,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.7,    !- Solar Absorptance
+  0.7;  !- Visible Absorptance
+
+Material,
+  Glass_6mm,              !- Name
+  VerySmooth, !- Roughness
+  0.006, !- Thickness
+  1.0,  !- Conductivity
+  2500,   !- Density
+  750,  !- Specific Heat
+  0.9,  !- Thermal Absorptance
+  0.7,    !- Solar Absorptance
+  0.8;  !- Visible Absorptance
+
+WindowMaterial:SimpleGlazingSystem,
+  Clear_3mm,             !- Name
+  5.778, !- U-Factor
+  0.819,  !- Solar Heat Gain Coefficient
+  0.881;  !- Visible Transmittance
+
+WindowMaterial:SimpleGlazingSystem,
+  LowE_6mm,             !- Name
+  3.0, !- U-Factor
+  0.6,  !- Solar Heat Gain Coefficient
+  0.75;  !- Visible Transmittance
+
+Construction,
+  External_Wall,            !- Name
+  Gypsum_Board_13mm,
+  Insulation_50mm,
+  Gypsum_Board_13mm;
+
+Construction,
+  Internal_Wall,            !- Name
+  Gypsum_Board_13mm,
+  Insulation_50mm,
+  Gypsum_Board_13mm;
+
+Construction,
+  Floor,            !- Name
+  Wood_Flooring_10mm,
+  Ceramic_Tile_10mm,
+  Concrete_200mm;
+
+Construction,
+  Ceiling,            !- Name
+  Plaster_20mm,
+  Concrete_200mm;
+
+Construction,
+  Window_Construction,            !- Name
+  Clear_3mm;  !- Layer 1
+
+Construction,
+  Door_Construction,            !- Name
+  Glass_6mm;
+
+Zone,
+  IT Office Room - Hanoi,  !- Name
+  0,                       !- Direction of Relative North
+  0, 0, 0,                 !- X, Y, Z Origin
+  1,                       !- Type
+  1,                       !- Multiplier
+  autocalculate,           !- Ceiling Height
+  autocalculate;           !- Volume
+
+BuildingSurface:Detailed,
+  Floor,                   !- Name
+  Floor,                   !- Surface Type
+  Floor,                   !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Ground,                  !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  NoSun,                   !- Sun Exposure
+  NoWind,                  !- Wind Exposure
+  0,                       !- View Factor to Ground
+  4,                       !- Number of Vertices
+  0, 0, 0,                 !- Vertex 1
+  0, 5.4, 0,   !- Vertex 2
+  23.4, 5.4, 0,  !- Vertex 3
+  23.4, 0, 0;  !- Vertex 4
+
+BuildingSurface:Detailed,
+  Ceiling,                 !- Name
+  Roof,                    !- Surface Type
+  Ceiling,                 !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Outdoors,                !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  SunExposed,              !- Sun Exposure
+  WindExposed,             !- Wind Exposure
+  0,                       !- View Factor to Ground
+  4,                       !- Number of Vertices
+  0, 5.4, 3.6,  !- Vertex 1
+  0, 0, 3.6,  !- Vertex 2
+  23.4, 0, 3.6,  !- Vertex 3
+  23.4, 5.4, 3.6;  !- Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_South,              !- Name
+  Wall,                    !- Surface Type
+  External_Wall,           !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Outdoors,                !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  SunExposed,              !- Sun Exposure
+  WindExposed,             !- Wind Exposure
+  0.5,                     !- View Factor to Ground
+  4,                       !- Number of Vertices
+  0, 0, 3.6,  !- Vertex 1
+  0, 0, 0,                 !- Vertex 2
+  23.4, 0, 0,  !- Vertex 3
+  23.4, 0, 3.6;  !- Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_North,              !- Name
+  Wall,                    !- Surface Type
+  External_Wall,           !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Outdoors,                !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  SunExposed,              !- Sun Exposure
+  WindExposed,             !- Wind Exposure
+  0.5,                     !- View Factor to Ground
+  4,                       !- Number of Vertices
+  23.4, 5.4, 3.6,  !- Vertex 1
+  23.4, 5.4, 0,  !- Vertex 2
+  0, 5.4, 0,   !- Vertex 3
+  0, 5.4, 3.6;  !- Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_East,               !- Name
+  Wall,                    !- Surface Type
+  External_Wall,           !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Outdoors,                !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  SunExposed,              !- Sun Exposure
+  WindExposed,             !- Wind Exposure
+  0.5,                     !- View Factor to Ground
+  4,                       !- Number of Vertices
+  23.4, 0, 3.6,  !- Vertex 1
+  23.4, 0, 0,  !- Vertex 2
+  23.4, 5.4, 0,  !- Vertex 3
+  23.4, 5.4, 3.6;  !- Vertex 4
+
+BuildingSurface:Detailed,
+  Wall_West,               !- Name
+  Wall,                    !- Surface Type
+  External_Wall,           !- Construction Name
+  IT Office Room - Hanoi,             !- Zone Name
+  Outdoors,                !- Outside Boundary Condition
+  ,                        !- Outside Boundary Condition Object
+  SunExposed,              !- Sun Exposure
+  WindExposed,             !- Wind Exposure
+  0.5,                     !- View Factor to Ground
+  4,                       !- Number of Vertices
+  0, 5.4, 3.6,  !- Vertex 1
+  0, 5.4, 0,   !- Vertex 2
+  0, 0, 0,                 !- Vertex 3
+  0, 0, 3.6;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Main_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  8.4, 0, 2.4,  !- Vertex 1
+  8.4, 0, 0.9,  !- Vertex 2
+  15.0, 0, 0.9,  !- Vertex 3
+  15.0, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Secondary_1_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  2.0, 0, 2.4,  !- Vertex 1
+  2.0, 0, 0.9,  !- Vertex 2
+  5.3, 0, 0.9,  !- Vertex 3
+  5.3, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Secondary_2_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  18.0, 0, 2.4,  !- Vertex 1
+  18.0, 0, 0.9,  !- Vertex 2
+  21.3, 0, 0.9,  !- Vertex 3
+  21.3, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Small_1_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  0.2, 0, 2.4,  !- Vertex 1
+  0.2, 0, 0.9,  !- Vertex 2
+  2.0, 0, 0.9,  !- Vertex 3
+  2.0, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Small_2_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  5.5, 0, 2.4,  !- Vertex 1
+  5.5, 0, 0.9,  !- Vertex 2
+  7.3, 0, 0.9,  !- Vertex 3
+  7.3, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Window_Small_3_South,        !- Name
+  Window,                  !- Surface Type
+  Window_Construction,     !- Construction Name
+  Wall_South,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  15.5, 0, 2.4,  !- Vertex 1
+  15.5, 0, 0.9,  !- Vertex 2
+  17.3, 0, 0.9,  !- Vertex 3
+  17.3, 0, 2.4;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Door_Glass_1,          !- Name
+  Door,                    !- Surface Type
+  Door_Construction,       !- Construction Name
+  Wall_North,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  13.399999999999999, 5.4, 3.0,  !- Vertex 1
+  13.399999999999999, 5.4, 0,  !- Vertex 2
+  12.2, 5.4, 0,  !- Vertex 3
+  12.2, 5.4, 3.0;  !- Vertex 4
+
+FenestrationSurface:Detailed,
+  Door_Glass_2,          !- Name
+  Door,                    !- Surface Type
+  Door_Construction,       !- Construction Name
+  Wall_North,             !- Building Surface Name
+  ,                        !- Outside Boundary Condition Object
+  autocalculate,           !- View Factor to Ground
+  ,                        !- Frame and Divider Name
+  1,                       !- Multiplier
+  4,                       !- Number of Vertices
+  11.2, 5.4, 3.0,  !- Vertex 1
+  11.2, 5.4, 0,  !- Vertex 2
+  10.0, 5.4, 0,  !- Vertex 3
+  10.0, 5.4, 3.0;  !- Vertex 4
+
+ScheduleTypeLimits,
+  Fraction,                !- Name
+  0.0,                     !- Lower Limit Value
+  1.0,                     !- Upper Limit Value
+  Continuous;              !- Numeric Type
+
+ScheduleTypeLimits,
+  OnOff,                   !- Name
+  0,                       !- Lower Limit Value
+  1,                       !- Upper Limit Value
+  Discrete;                !- Numeric Type
+
+ScheduleTypeLimits,
+  Temperature,             !- Name
+  -60,                     !- Lower Limit Value
+  200,                     !- Upper Limit Value
+  Continuous;              !- Numeric Type
+
+ScheduleTypeLimits,
+  Control Type,            !- Name
+  0,                       !- Lower Limit Value
+  4,                       !- Upper Limit Value
+  Discrete;                !- Numeric Type
+
+ScheduleTypeLimits,
+  Any Number;              !- Name
+
+Schedule:Compact,
+  Occupancy_Schedule,      !- Name
+  Fraction,                !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: Weekdays,           !- Field 2
+  Until: 08:00, 0.0,       !- Field 3
+  Until: 09:00, 0.2,       !- Field 5
+  Until: 12:00, 1.0,       !- Field 7
+  Until: 13:00, 0.5,       !- Field 9
+  Until: 17:00, 1.0,       !- Field 11
+  Until: 18:00, 0.3,       !- Field 13
+  Until: 24:00, 0.0,       !- Field 15
+  For: Weekend,            !- Field 17
+  Until: 24:00, 0.0,       !- Field 18
+  For: AllOtherDays,       !- Field 19
+  Until: 24:00, 0.0;       !- Field 20
+
+Schedule:Compact,
+  Lighting_Schedule,       !- Name
+  Fraction,                !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: Weekdays,           !- Field 2
+  Until: 08:00, 0.0,       !- Field 3
+  Until: 12:00, 0.9,       !- Field 5
+  Until: 13:00, 0.5,       !- Field 7
+  Until: 17:00, 0.9,       !- Field 9
+  Until: 19:00, 0.3,       !- Field 11
+  Until: 24:00, 0.0,       !- Field 13
+  For: Weekend,            !- Field 15
+  Until: 24:00, 0.0,       !- Field 16
+  For: AllOtherDays,       !- Field 17
+  Until: 24:00, 0.0;       !- Field 18
+
+Schedule:Compact,
+  Equipment_Schedule,      !- Name
+  Fraction,                !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: Weekdays,           !- Field 2
+  Until: 08:00, 0.1,       !- Field 3
+  Until: 09:00, 0.3,       !- Field 5
+  Until: 12:00, 0.9,       !- Field 7
+  Until: 13:00, 0.5,       !- Field 9
+  Until: 17:00, 0.9,       !- Field 11
+  Until: 18:00, 0.3,       !- Field 13
+  Until: 24:00, 0.1,       !- Field 15
+  For: Weekend,            !- Field 17
+  Until: 24:00, 0.1,       !- Field 18
+  For: AllOtherDays,       !- Field 19
+  Until: 24:00, 0.1;       !- Field 20
+
+Schedule:Compact,
+  HVAC_Schedule,           !- Name
+  Fraction,                !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: Weekdays,           !- Field 2
+  Until: 07:00, 0,         !- Field 3
+  Until: 18:00, 1,         !- Field 5
+  Until: 24:00, 0,         !- Field 7
+  For: Weekend,            !- Field 9
+  Until: 24:00, 0,         !- Field 10
+  For: AllOtherDays,       !- Field 11
+  Until: 24:00, 0;         !- Field 12
+
+Schedule:Compact,
+  Always_On,               !- Name
+  Fraction,                !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 1.0;       !- Field 3
+
+Schedule:Compact,
+  Outdoor_CO2_Schedule,    !- Name
+  Any Number,              !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 400.0;     !- Field 3
+
+People,
+  IT Office Room - Hanoi_People,      !- Name
+  IT Office Room - Hanoi,             !- Zone or ZoneList Name
+  Occupancy_Schedule,      !- Number of People Schedule Name
+  People,                  !- Number of People Calculation Method
+  8,  !- Number of People
+  ,                        !- People per Zone Floor Area
+  ,                        !- Zone Floor Area per Person
+  0.3,                     !- Fraction Radiant
+  autocalculate,           !- Sensible Heat Fraction
+  Activity_Schedule,       !- Activity Level Schedule Name
+  3.82e-8;                 !- Carbon Dioxide Generation Rate {m3/s-W}
+
+ZoneInfiltration:DesignFlowRate,
+  IT Office Room - Hanoi_Infiltration, !- Name
+  IT Office Room - Hanoi,             !- Zone or ZoneList Name
+  Always_On,               !- Schedule Name
+  Flow/Area,               !- Design Flow Rate Calculation Method
+  ,                        !- Design Flow Rate {m3/s}
+  0.0003,                  !- Flow per Zone Floor Area {m3/s-m2}
+  ,                        !- Flow per Exterior Surface Area {m3/s-m2}
+  ,                        !- Air Changes per Hour {1/hr}
+  1.0,                     !- Constant Term Coefficient
+  0.0,                     !- Temperature Term Coefficient
+  0.0,                     !- Velocity Term Coefficient
+  0.0;                     !- Velocity Squared Term Coefficient
+
+Schedule:Compact,
+  Activity_Schedule,       !- Name
+  Any Number,              !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 130;  !- Field 3
+
+Lights,
+  IT Office Room - Hanoi_Lights,      !- Name
+  IT Office Room - Hanoi,             !- Zone or ZoneList Name
+  Lighting_Schedule,       !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Lighting Level
+  12.0,  !- Watts per Zone Floor Area
+  ,                        !- Watts per Person
+  0.0,  !- Return Air Fraction
+  0.42,    !- Fraction Radiant
+  0.18;    !- Fraction Visible
+
+ElectricEquipment,
+  IT Office Room - Hanoi_Equipment,   !- Name
+  IT Office Room - Hanoi,             !- Zone or ZoneList Name
+  Equipment_Schedule,      !- Schedule Name
+  Watts/Area,              !- Design Level Calculation Method
+  ,                        !- Design Level
+  35.0,  !- Watts per Zone Floor Area
+  ,                        !- Watts per Person
+  0.0,  !- Fraction Latent
+  0.3,  !- Fraction Radiant
+  0.0;     !- Fraction Lost
+
+ZoneControl:Thermostat,
+  IT Office Room - Hanoi_Thermostat,  !- Name
+  IT Office Room - Hanoi,             !- Zone or ZoneList Name
+  Zone_Control_Type_Sched, !- Control Type Schedule Name
+  ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
+  IT Office Room - Hanoi_DualSetpoint;  !- Control 1 Name
+
+Schedule:Compact,
+  Zone_Control_Type_Sched, !- Name
+  Control Type,            !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 4;         !- Field 3
+
+ThermostatSetpoint:DualSetpoint,
+  IT Office Room - Hanoi_DualSetpoint,  !- Name
+  Heating_Setpoint_Sched,  !- Heating Setpoint Temperature Schedule Name
+  Cooling_Setpoint_Sched;  !- Cooling Setpoint Temperature Schedule Name
+
+Schedule:Compact,
+  Heating_Setpoint_Sched,  !- Name
+  Temperature,             !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 20.0;  !- Field 3
+
+Schedule:Compact,
+  Cooling_Setpoint_Sched,  !- Name
+  Temperature,             !- Schedule Type Limits Name
+  Through: 12/31,          !- Field 1
+  For: AllDays,            !- Field 2
+  Until: 24:00, 22.0;  !- Field 3
+
+HVACTemplate:Zone:IdealLoadsAirSystem,
+  IT Office Room - Hanoi,             !- Zone Name
+  ,                        !- Template Thermostat Name
+  ,                        !- System Availability Schedule Name
+  50,                      !- Maximum Heating Supply Air Temperature
+  13,                      !- Minimum Cooling Supply Air Temperature
+  0.015,                   !- Maximum Heating Supply Air Humidity Ratio
+  0.009,                   !- Minimum Cooling Supply Air Humidity Ratio
+  NoLimit,                 !- Heating Limit
+  autosize,                !- Maximum Heating Air Flow Rate
+  ,                        !- Maximum Sensible Heating Capacity
+  NoLimit,                 !- Cooling Limit
+  autosize,                !- Maximum Cooling Air Flow Rate
+  ,                        !- Maximum Total Cooling Capacity
+  ,                        !- Heating Availability Schedule Name
+  ,                        !- Cooling Availability Schedule Name
+  ConstantSensibleHeatRatio,  !- Dehumidification Control Type
+  0.7,                     !- Cooling Sensible Heat Ratio
+  60.0,                    !- Dehumidification Setpoint
+  None,                    !- Humidification Control Type
+  30.0,                    !- Humidification Setpoint
+  Flow/Person,             !- Outdoor Air Method
+  0.00944,                 !- Outdoor Air Flow Rate per Person
+  ,                        !- Outdoor Air Flow Rate per Zone Floor Area
+  ,                        !- Outdoor Air Flow Rate per Zone
+  ,                        !- Design Specification Outdoor Air Object Name
+  None,                    !- Demand Controlled Ventilation Type
+  NoEconomizer,            !- Outdoor Air Economizer Type
+  None,                    !- Heat Recovery Type
+  0.70,                    !- Sensible Heat Recovery Effectiveness
+  0.65;                    !- Latent Heat Recovery Effectiveness
+
+OutputControl:Table:Style,
+  HTML;                    !- Column Separator
+
+Output:VariableDictionary,
+  Regular;                 !- Key Field
+
+ZoneAirContaminantBalance,
+  Yes,                     !- Carbon Dioxide Concentration
+  Outdoor_CO2_Schedule;    !- Outdoor Carbon Dioxide Schedule Name
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Mean Air Temperature,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Air Relative Humidity,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Lights Electric Power,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Air CO2 Concentration,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Ideal Loads Supply Air Total Cooling Energy,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Ideal Loads Supply Air Total Heating Energy,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Lights Electricity Energy,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone Electric Equipment Electricity Energy,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Variable,
+  *,                       !- Key Value
+  Zone People Occupant Count,                   !- Variable Name
+  Hourly;  !- Reporting Frequency
+
+Output:Table:SummaryReports,
+  AllSummary;              !- Report 1 Name

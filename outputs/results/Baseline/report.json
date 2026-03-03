@@ -1,0 +1,17 @@
+{
+  "scenario_name": "Baseline",
+  "metrics": {
+    "total_cooling_energy_kwh": 25348.553185295546,
+    "peak_cooling_power_kw": 59.366188709011666,
+    "total_heating_energy_kwh": 1285.9724090261564,
+    "peak_heating_power_kw": 29.381035362420956,
+    "total_energy_kwh": 26634.5255943217,
+    "avg_temperature_c": 21.689772155619398,
+    "min_temperature_c": 19.999999999999677,
+    "max_temperature_c": 22.000000000000416,
+    "avg_humidity_pct": 58.21484247910172,
+    "min_humidity_pct": 54.1037891344165,
+    "max_humidity_pct": 100.0
+  },
+  "plots_dir": "/home/khanshhh/Documents/Code/Research AI/EEiB-Demo/outputs/results/Baseline/plots"
+}

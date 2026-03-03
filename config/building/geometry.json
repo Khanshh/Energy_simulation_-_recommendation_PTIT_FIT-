@@ -1,0 +1,116 @@
+{
+    "room_name": "IT Office Room - Hanoi",
+    "description": "Large IT office room with multiple workstations and HVAC sensors",
+    "dimensions": {
+        "length": 23.4,
+        "width": 5.4,
+        "height": 3.6,
+        "units": "meters"
+    },
+    "orientation": {
+        "north_axis": 180,
+        "description": "0 = North, 90 = East, 180 = South, 270 = West. Main facade faces South."
+    },
+    "location": {
+        "latitude": 21.0285,
+        "longitude": 105.8542,
+        "timezone": 7,
+        "elevation": 16,
+        "city": "Hanoi",
+        "country": "Vietnam"
+    },
+    "windows": [
+        {
+            "name": "Window_Main_South",
+            "wall": "South",
+            "width": 6.6,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 8.4,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Main large window"
+        },
+        {
+            "name": "Window_Secondary_1_South",
+            "wall": "South",
+            "width": 3.3,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 2.0,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Secondary window 1"
+        },
+        {
+            "name": "Window_Secondary_2_South",
+            "wall": "South",
+            "width": 3.3,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 18.0,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Secondary window 2"
+        },
+        {
+            "name": "Window_Small_1_South",
+            "wall": "South",
+            "width": 1.8,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 0.2,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Small window 1"
+        },
+        {
+            "name": "Window_Small_2_South",
+            "wall": "South",
+            "width": 1.8,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 5.5,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Small window 2"
+        },
+        {
+            "name": "Window_Small_3_South",
+            "wall": "South",
+            "width": 1.8,
+            "height": 1.5,
+            "sill_height": 0.9,
+            "offset_from_left": 15.5,
+            "glass_type": "Clear_3mm",
+            "frame_type": "Aluminum",
+            "description": "Small window 3"
+        }
+    ],
+    "doors": [
+        {
+            "name": "Door_Glass_1",
+            "wall": "North",
+            "width": 1.2,
+            "height": 3.0,
+            "offset_from_left": 10.0,
+            "material": "Glass_Door",
+            "description": "Glass sliding door 1"
+        },
+        {
+            "name": "Door_Glass_2",
+            "wall": "North",
+            "width": 1.2,
+            "height": 3.0,
+            "offset_from_left": 12.2,
+            "material": "Glass_Door",
+            "description": "Glass sliding door 2"
+        }
+    ],
+    "internal_mass": {
+        "furniture": {
+            "area": 50.0,
+            "description": "Multiple IT workstations, desks, chairs, server racks, cabinets"
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "description": "HVAC system configuration for IT office room in Hanoi",
+    "system_type": "IdealLoadsAirSystem",
+    "notes": "Using Ideal Loads for initial simulation. High cooling capacity needed for IT equipment (~40 computers) and 5-15 occupants.",
+    "thermostat": {
+        "heating_setpoint": 20.0,
+        "cooling_setpoint": 22.0,
+        "cooling_setpoint_max": 25.0,
+        "humidity_setpoint": null,
+        "units": "Celsius",
+        "notes": "Temperature range 22-25°C as specified by user"
+    },
+    "ideal_loads_settings": {
+        "heating_limit": "LimitCapacity",
+        "max_heating_capacity": 15000,
+        "cooling_limit": "LimitCapacity",
+        "max_cooling_capacity": 35000,
+        "dehumidification_control": "ConstantSensibleHeatRatio",
+        "cooling_sensible_heat_ratio": 0.7,
+        "heating_availability_schedule": "HVAC_Schedule",
+        "cooling_availability_schedule": "HVAC_Schedule",
+        "notes": "Increased cooling capacity for high IT equipment load"
+    },
+    "ventilation": {
+        "outdoor_air_method": "Flow/Person",
+        "outdoor_air_flow_per_person": 0.01,
+        "outdoor_air_flow_per_area": 0.003,
+        "outdoor_air_flow_rate": 0.0,
+        "outdoor_air_schedule": "Occupancy_Schedule",
+        "notes": "Increased ventilation for higher occupancy (5-15 people)"
+    },
+    "detailed_hvac_alternative": {
+        "notes": "For future implementation with actual HVAC equipment",
+        "system_type": "Split_AC",
+        "cooling_capacity": 9000,
+        "heating_capacity": 0,
+        "cop_cooling": 3.2,
+        "cop_heating": null,
+        "fan_power": 150,
+        "outdoor_unit_location": "Outside",
+        "indoor_unit_location": "Ceiling_Mounted"
+    },
+    "sensor_integration": {
+        "temperature_sensor": {
+            "location": "Center_of_room",
+            "height": 1.5,
+            "enabled": true
+        },
+        "humidity_sensor": {
+            "location": "Center_of_room",
+            "height": 1.5,
+            "enabled": true
+        },
+        "co2_sensor": {
+            "location": "Center_of_room",
+            "height": 1.5,
+            "enabled": false
+        }
+    }
+}

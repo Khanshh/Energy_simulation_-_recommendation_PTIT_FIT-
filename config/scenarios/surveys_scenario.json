@@ -1,0 +1,132 @@
+{
+    "scenario_name": "Surveys_Scenario",
+    "description": "Survey-based scenario using real occupancy data collected from office surveys",
+    "simulation_period": {
+        "start_month": 1,
+        "start_day": 1,
+        "end_month": 12,
+        "end_day": 31,
+        "year": 2024
+    },
+    "config_files": {
+        "geometry": "config/building/geometry.json",
+        "materials": "config/building/materials.json",
+        "hvac": "config/hvac/hvac_config.json",
+        "schedules": "config/schedules/schedules.json"
+    },
+    "overrides": {
+        "description": "Occupancy pattern based on survey data from actual office workers",
+        "schedules": {
+            "occupancy_data": {
+                "max_occupants": 8,
+                "survey_date": "2024-01-15 to 2024-01-26",
+                "survey_participants": 8,
+                "notes": "Data collected from 2-week survey of office occupancy"
+            },
+            "occupancy_schedule": {
+                "pattern_type": "survey_based",
+                "data_source": "Office occupancy survey Jan 2024",
+                "working_hours": "8-17",
+                "working_days": "Monday-Friday",
+                "weekday": {
+                    "0-7": 0.0,
+                    "8": 0.375,
+                    "9": 0.625,
+                    "10": 0.875,
+                    "11": 0.875,
+                    "12": 0.5,
+                    "13": 0.625,
+                    "14": 0.875,
+                    "15": 0.75,
+                    "16": 0.625,
+                    "17": 0.375,
+                    "18-23": 0.0
+                },
+                "saturday": {
+                    "0-23": 0.0
+                },
+                "sunday": {
+                    "0-23": 0.0
+                },
+                "survey_data": {
+                    "8h": {
+                        "average_occupants": 3,
+                        "percentage": 0.375,
+                        "notes": "Survey shows 3/8 people typically arrive by 8am"
+                    },
+                    "9h": {
+                        "average_occupants": 5,
+                        "percentage": 0.625,
+                        "notes": "5/8 people present by 9am"
+                    },
+                    "10h": {
+                        "average_occupants": 7,
+                        "percentage": 0.875,
+                        "notes": "Peak morning occupancy - 7/8 people"
+                    },
+                    "11h": {
+                        "average_occupants": 7,
+                        "percentage": 0.875,
+                        "notes": "Maintained high occupancy before lunch"
+                    },
+                    "12h": {
+                        "average_occupants": 4,
+                        "percentage": 0.5,
+                        "notes": "Lunch time - half the office out"
+                    },
+                    "13h": {
+                        "average_occupants": 5,
+                        "percentage": 0.625,
+                        "notes": "Returning from lunch"
+                    },
+                    "14h": {
+                        "average_occupants": 7,
+                        "percentage": 0.875,
+                        "notes": "Peak afternoon occupancy"
+                    },
+                    "15h": {
+                        "average_occupants": 6,
+                        "percentage": 0.75,
+                        "notes": "Some people in meetings or out"
+                    },
+                    "16h": {
+                        "average_occupants": 5,
+                        "percentage": 0.625,
+                        "notes": "People starting to leave"
+                    },
+                    "17h": {
+                        "average_occupants": 3,
+                        "percentage": 0.375,
+                        "notes": "End of day - only 3 people remaining"
+                    }
+                },
+                "thermal_comfort_preferences": {
+                    "preferred_temperature_range": "22-25°C",
+                    "preferred_cooling_setpoint": "24°C",
+                    "humidity_preference": "50-60%",
+                    "notes": "Based on thermal comfort survey responses"
+                }
+            },
+            "hvac": {
+                "thermostat": {
+                    "cooling_setpoint": 24.0,
+                    "notes": "Set based on survey preference data"
+                }
+            }
+        }
+    },
+    "output_variables": [
+        "Zone Mean Air Temperature",
+        "Zone Air Relative Humidity",
+        "Zone Lights Electric Power",
+        "Zone Air CO2 Concentration",
+        "Zone Ideal Loads Supply Air Total Cooling Energy",
+        "Zone Ideal Loads Supply Air Total Heating Energy",
+        "Zone Lights Electricity Energy",
+        "Zone Electric Equipment Electricity Energy",
+        "Zone People Occupant Count"
+    ],
+    "output_frequency": "Hourly",
+    "weather_file": "hanoi.epw",
+    "notes": "This scenario is based on actual survey data collected from office workers over a 2-week period in January 2024. The occupancy pattern reflects real behavior including lunch breaks, meetings, and flexible work hours."
+}

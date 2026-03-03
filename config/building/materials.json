@@ -1,0 +1,152 @@
+{
+    "description": "Building materials and constructions for office room",
+    "materials": {
+        "Concrete_200mm": {
+            "type": "Material",
+            "roughness": "MediumRough",
+            "thickness": 0.2,
+            "conductivity": 1.95,
+            "density": 2400,
+            "specific_heat": 900,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.7,
+            "visible_absorptance": 0.7
+        },
+        "Brick_100mm": {
+            "type": "Material",
+            "roughness": "MediumRough",
+            "thickness": 0.1,
+            "conductivity": 0.89,
+            "density": 1920,
+            "specific_heat": 790,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.7,
+            "visible_absorptance": 0.7
+        },
+        "Insulation_50mm": {
+            "type": "Material",
+            "roughness": "MediumRough",
+            "thickness": 0.05,
+            "conductivity": 0.04,
+            "density": 32,
+            "specific_heat": 1210,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.6,
+            "visible_absorptance": 0.6
+        },
+        "Plaster_20mm": {
+            "type": "Material",
+            "roughness": "Smooth",
+            "thickness": 0.02,
+            "conductivity": 0.72,
+            "density": 1860,
+            "specific_heat": 840,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.6,
+            "visible_absorptance": 0.6
+        },
+        "Ceramic_Tile_10mm": {
+            "type": "Material",
+            "roughness": "Smooth",
+            "thickness": 0.01,
+            "conductivity": 1.3,
+            "density": 2300,
+            "specific_heat": 840,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.6,
+            "visible_absorptance": 0.6
+        },
+        "Gypsum_Board_13mm": {
+            "type": "Material",
+            "roughness": "Smooth",
+            "thickness": 0.013,
+            "conductivity": 0.16,
+            "density": 800,
+            "specific_heat": 1090,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.5,
+            "visible_absorptance": 0.5
+        },
+        "Wood_Flooring_10mm": {
+            "type": "Material",
+            "roughness": "MediumSmooth",
+            "thickness": 0.01,
+            "conductivity": 0.15,
+            "density": 700,
+            "specific_heat": 1630,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.7,
+            "visible_absorptance": 0.7
+        },
+        "Glass_6mm": {
+            "type": "Material",
+            "roughness": "VerySmooth",
+            "thickness": 0.006,
+            "conductivity": 1.0,
+            "density": 2500,
+            "specific_heat": 750,
+            "thermal_absorptance": 0.9,
+            "solar_absorptance": 0.7,
+            "visible_absorptance": 0.8
+        }
+    },
+    "glazing": {
+        "Clear_3mm": {
+            "type": "WindowMaterial:SimpleGlazingSystem",
+            "u_factor": 5.778,
+            "solar_heat_gain_coefficient": 0.819,
+            "visible_transmittance": 0.881
+        },
+        "LowE_6mm": {
+            "type": "WindowMaterial:SimpleGlazingSystem",
+            "u_factor": 3.0,
+            "solar_heat_gain_coefficient": 0.6,
+            "visible_transmittance": 0.75
+        }
+    },
+    "constructions": {
+        "External_Wall": {
+            "description": "Gypsum board partition wall with insulation",
+            "layers": [
+                "Gypsum_Board_13mm",
+                "Insulation_50mm",
+                "Gypsum_Board_13mm"
+            ]
+        },
+        "Internal_Wall": {
+            "description": "Lightweight gypsum partition wall",
+            "layers": [
+                "Gypsum_Board_13mm",
+                "Insulation_50mm",
+                "Gypsum_Board_13mm"
+            ]
+        },
+        "Floor": {
+            "description": "Wood flooring over ceramic tile on concrete slab",
+            "layers": [
+                "Wood_Flooring_10mm",
+                "Ceramic_Tile_10mm",
+                "Concrete_200mm"
+            ]
+        },
+        "Ceiling": {
+            "description": "Ceiling of 3rd floor (simplified as concrete with plaster)",
+            "layers": [
+                "Plaster_20mm",
+                "Concrete_200mm"
+            ],
+            "notes": "User unsure of exact ceiling construction on 3rd floor"
+        },
+        "Window_Construction": {
+            "description": "Simple clear glass window",
+            "glazing": "Clear_3mm"
+        },
+        "Door_Construction": {
+            "description": "Glass sliding door",
+            "layers": [
+                "Glass_6mm"
+            ],
+            "notes": "Glass sliding doors for IT office"
+        }
+    }
+}
