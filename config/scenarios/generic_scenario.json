@@ -18,8 +18,8 @@
         "description": "Random occupancy pattern with weighted distribution",
         "schedules": {
             "occupancy_data": {
-                "max_occupants": 8,
-                "notes": "Maximum capacity is 8 people"
+                "max_occupants": 12,
+                "notes": "Maximum capacity is 12 people"
             },
             "occupancy_schedule": {
                 "pattern_type": "random_weighted",
@@ -27,14 +27,14 @@
                 "working_days": "Monday-Friday",
                 "distribution": {
                     "type": "weighted_random",
-                    "base_occupancy": 6,
+                    "base_occupancy": 8,
                     "base_probability": 0.6,
                     "random_range": [
-                        4,
-                        8
+                        8,
+                        12
                     ],
                     "random_probability": 0.4,
-                    "notes": "60% of the time: 6 people, 40% of the time: random 4-8 people"
+                    "notes": "60% of the time: 8 people, 40% of the time: random 8-12 people"
                 },
                 "weekday": {
                     "0-7": 0.0,
