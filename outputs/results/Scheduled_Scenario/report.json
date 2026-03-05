@@ -1,0 +1,18 @@
+{
+  "scenario_name": "Scheduled_Scenario",
+  "metrics": {
+    "total_cooling_energy_kwh": 43767.00276955247,
+    "peak_cooling_power_kw": 80.46688287153594,
+    "total_heating_energy_kwh": 1994.207619992461,
+    "peak_heating_power_kw": 36.12379714126056,
+    "total_energy_kwh": 45761.21038954493,
+    "avg_temperature_c": 21.643532156143188,
+    "min_temperature_c": 19.999999999999844,
+    "max_temperature_c": 22.000000000000377,
+    "avg_humidity_pct": 65.0063212935872,
+    "min_humidity_pct": 26.06183299708824,
+    "max_humidity_pct": 100.0
+  },
+  "sensor_csv": "/home/khanshhh/Documents/Code/Research AI/EEiB-Demo/outputs/results/Scheduled_Scenario/Scheduled_Scenario_sensor_data.csv",
+  "plots_dir": "/home/khanshhh/Documents/Code/Research AI/EEiB-Demo/outputs/results/Scheduled_Scenario/plots"
+}

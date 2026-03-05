@@ -1,0 +1,17 @@
+{
+  "scenario_name": "High_Occupancy",
+  "metrics": {
+    "total_cooling_energy_kwh": 21394.05847277933,
+    "peak_cooling_power_kw": 52.39711145729261,
+    "total_heating_energy_kwh": 1448.615755973574,
+    "peak_heating_power_kw": 29.839612973670352,
+    "total_energy_kwh": 22842.6742287529,
+    "avg_temperature_c": 21.653541187691783,
+    "min_temperature_c": 19.9999999999997,
+    "max_temperature_c": 22.00000000000032,
+    "avg_humidity_pct": 58.725868789284554,
+    "min_humidity_pct": 54.10573113200748,
+    "max_humidity_pct": 100.0
+  },
+  "plots_dir": "/home/khanshhh/Documents/Code/Research AI/EEiB-Demo/outputs/results/High_Occupancy/plots"
+}

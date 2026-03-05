@@ -1,0 +1,17 @@
+{
+  "scenario_name": "Energy_Saving",
+  "metrics": {
+    "total_cooling_energy_kwh": 14344.820080348598,
+    "peak_cooling_power_kw": 45.94441173309396,
+    "total_heating_energy_kwh": 1130.0229237599835,
+    "peak_heating_power_kw": 26.63711776080293,
+    "total_energy_kwh": 15474.843004108581,
+    "avg_temperature_c": 23.76488079032482,
+    "min_temperature_c": 19.999999999999744,
+    "max_temperature_c": 25.000000000000373,
+    "avg_humidity_pct": 57.909479963622346,
+    "min_humidity_pct": 45.19364371019522,
+    "max_humidity_pct": 100.0
+  },
+  "plots_dir": "/home/khanshhh/Documents/Code/Research AI/EEiB-Demo/outputs/results/Energy_Saving/plots"
+}

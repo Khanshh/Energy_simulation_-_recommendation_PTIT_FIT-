@@ -1,0 +1,75 @@
+{
+    "scenario_name": "Scheduled_Scenario",
+    "description": "Scheduled scenario with fixed occupancy pattern based on typical office schedule",
+    "simulation_period": {
+        "start_month": 1,
+        "start_day": 1,
+        "end_month": 12,
+        "end_day": 31,
+        "year": 2024
+    },
+    "config_files": {
+        "geometry": "config/building/geometry.json",
+        "materials": "config/building/materials.json",
+        "hvac": "config/hvac/hvac_config.json",
+        "schedules": "config/schedules/schedules.json"
+    },
+    "overrides": {
+        "description": "Fixed schedule with predictable occupancy pattern",
+        "schedules": {
+            "occupancy_data": {
+                "max_occupants": 8,
+                "notes": "Maximum capacity is 8 people"
+            },
+            "occupancy_schedule": {
+                "pattern_type": "fixed_schedule",
+                "working_hours": "8-17",
+                "working_days": "Monday-Friday",
+                "weekday": {
+                    "0-7": 0.0,
+                    "8": 0.5,
+                    "9": 0.75,
+                    "10": 1.0,
+                    "11": 1.0,
+                    "12": 0.625,
+                    "13": 0.75,
+                    "14": 1.0,
+                    "15": 1.0,
+                    "16": 0.875,
+                    "17": 0.5,
+                    "18-23": 0.0
+                },
+                "saturday": {
+                    "0-23": 0.0
+                },
+                "sunday": {
+                    "0-23": 0.0
+                },
+                "notes": {
+                    "8h": "4 people (50% - early arrivals)",
+                    "9h": "6 people (75% - most arrived)",
+                    "10-11h": "8 people (100% - full capacity)",
+                    "12h": "5 people (62.5% - lunch break)",
+                    "13h": "6 people (75% - back from lunch)",
+                    "14-15h": "8 people (100% - full capacity)",
+                    "16h": "7 people (87.5% - some leaving early)",
+                    "17h": "4 people (50% - end of day)"
+                }
+            }
+        }
+    },
+    "output_variables": [
+        "Zone Mean Air Temperature",
+        "Zone Air Relative Humidity",
+        "Zone Lights Electric Power",
+        "Zone Air CO2 Concentration",
+        "Zone Ideal Loads Supply Air Total Cooling Energy",
+        "Zone Ideal Loads Supply Air Total Heating Energy",
+        "Zone Lights Electricity Energy",
+        "Zone Electric Equipment Electricity Energy",
+        "Zone People Occupant Count"
+    ],
+    "output_frequency": "Hourly",
+    "weather_file": "hanoi.epw",
+    "notes": "This scenario uses a fixed schedule that represents typical office occupancy patterns with lunch breaks and gradual arrival/departure"
+}

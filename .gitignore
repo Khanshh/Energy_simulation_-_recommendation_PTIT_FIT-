@@ -22,3 +22,34 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Environments
+venv/
+.venv/
+env/
+.env
+
+# Compiled Python modules
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# IDEs & OS Files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node / JS Packages
+node_modules/
+
+# EnergyPlus Outputs — toàn bộ file sinh ra khi chạy mô phỏng
+outputs/
+
+# EnergyPlus temp files ở thư mục gốc
+expandedidf.err
+*.err
